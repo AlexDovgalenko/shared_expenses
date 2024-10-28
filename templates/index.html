@@ -7,45 +7,56 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="main-container">
-        <h1>Shared Expenses</h1>
+<!--    <div class="main-container">-->
+    <div>
+        <div class="inputs-section">
+            <h1>Shared Expenses</h1>
 
-        <!-- Form for adding participants -->
-        <form method="POST">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="expense">Expense:</label>
-                <input type="text" id="expense" name="expense" required>
-            </div>
-            <button type="submit" name="add_participant">Add Participant</button>
-        </form>
+            <!-- Form for adding participants -->
+            <form method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense">Expense:</label>
+                    <input type="text" id="expense" name="expense" required>
+                </div>
+                <button type="submit" name="add_participant">Add Participant</button>
+            </form>
+        </div>
         <br>
         <!-- Separate form for calculating expenses -->
-        <form method="POST">
-            <button type="submit" name="calculate">Calculate Expenses</button>
-            <button type="submit" name="reset_all">Reset All</button> <!-- Button to reset all data -->
-        </form>
+        <div class="buttons-section">
+            <form method="POST">
+                <button type="submit" name="calculate">Calculate Expenses</button>
+                <button type="submit" name="reset_all">Reset All</button> <!-- Button to reset all data -->
+            </form>
+        </div>
         <br>
-        <h3>Participants:</h3>
-        <ul>
-            {% for participant in participants %}
-                <li>{{ participant.name }} - ${{ participant.expense }}</li>
-            {% endfor %}
-        </ul>
-        {% if transactions is not none %}
-            <div>
-                Total Expenses: <strong>${{ total_expense }}</strong><br>
-                Fair Share: <strong>${{ fair_share }}</strong>
+        {% if participants is not none %}
+            <div class="participants-section">
+                <h3>Participants:</h3>
+                <ul>
+                    {% for participant in participants %}
+                        <li>{{ participant.name }} - ${{ participant.expense }}</li>
+                    {% endfor %}
+                </ul>
             </div>
-            <h4>Transactions:</h4>
-            <ul>
-                {% for transaction in transactions %}
-                    <li>{{ transaction }}</li>
-                {% endfor %}
-            </ul>
+        {% endif %}
+        {% if transactions is not none %}
+            <div class="transactions-section">
+                <div>
+                    Total Expenses: <strong>${{ total_expense }}</strong><br>
+                    Fair Share: <strong>${{ fair_share }}</strong>
+                </div>
+                <h4>Transactions:</h4>
+                <ul>
+                    {% for transaction in transactions %}
+                        <li>{{ transaction }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
     </div>
 </body>
