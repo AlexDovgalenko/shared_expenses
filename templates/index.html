@@ -16,7 +16,7 @@
         <br>
         <label for="expense">Expense:</label>
         <input type="text" id="expense" name="expense" required>
-
+        <br>
         <button type="submit" name="add_participant">Add Participant</button>
     </form>
     <br>
@@ -35,7 +35,7 @@
     {% if transactions is not none %}
         <div>
             Total Expenses: <strong>${{ total_expense }}</strong><br>
-            Fair Share: <strong>${{ fair_share }}</strong>
+            Fair Share: <strong>${{ fair_share_str }}</strong>
         </div>
         <h4>Transactions:</h4>
         <ul>

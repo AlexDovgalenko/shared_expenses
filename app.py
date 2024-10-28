@@ -30,7 +30,7 @@ def index():
                 return render_template('index.html',
                                        participants=participants,
                                        total_expense=total_expense,
-                                       fair_share=fair_share,
+                                       fair_share=f"{fair_share:.2f}",
                                        transactions=transactions)
 
     return render_template('index.html',
