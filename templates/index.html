@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Shared Expenses</h1>
+
+    <!-- Form for adding participants -->
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="expense">Expense:</label>
+        <input type="text" id="expense" name="expense" required>
+
+        <button type="submit" name="add_participant">Add Participant</button>
+    </form>
+    <br>
+    <!-- Separate form for calculating expenses -->
+    <form method="POST">
+        <button type="submit" name="calculate">Calculate Expenses</button>
+        <button type="submit" name="reset_all">Reset All</button> <!-- Button to reset all data -->
+    </form>
+    <br>
+    <h3>Participants:</h3>
+    <ul>
+        {% for participant in participants %}
+            <li>{{ participant.name }} - ${{ participant.expense }}</li>
+        {% endfor %}
+    </ul>
+    {% if transactions is not none %}
+        <div>
+            Total Expenses: <strong>${{ total_expense }}</strong><br>
+            Fair Share: <strong>${{ fair_share }}</strong>
+        </div>
+        <h4>Transactions:</h4>
+        <ul>
+            {% for transaction in transactions %}
+                <li>{{ transaction }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
