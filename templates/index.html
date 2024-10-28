@@ -7,9 +7,9 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<!--    <div class="main-container">-->
-    <div>
-        <div class="inputs-section">
+    <div class="app-container" id="app">
+<!--    <div >-->
+        <div class="item">
             <h1>Shared Expenses</h1>
 
             <!-- Form for adding participants -->
@@ -25,17 +25,16 @@
                 <button type="submit" name="add_participant">Add Participant</button>
             </form>
         </div>
-        <br>
         <!-- Separate form for calculating expenses -->
-        <div class="buttons-section">
+        <div class="item">
             <form method="POST">
                 <button type="submit" name="calculate">Calculate Expenses</button>
-                <button type="submit" name="reset_all">Reset All</button> <!-- Button to reset all data -->
+                <button type="submit" class="reset-all" name="reset-all">Reset All</button> <!-- Button to reset all data -->
             </form>
         </div>
         <br>
         {% if participants is not none %}
-            <div class="participants-section">
+            <div class="item">
                 <h3>Participants:</h3>
                 <ul>
                     {% for participant in participants %}
@@ -45,11 +44,11 @@
             </div>
         {% endif %}
         {% if transactions is not none %}
-            <div class="transactions-section">
-                <div>
-                    Total Expenses: <strong>${{ total_expense }}</strong><br>
-                    Fair Share: <strong>${{ fair_share }}</strong>
-                </div>
+            <div class="item">
+                Total Expenses: <strong>${{ total_expense }}</strong><br>
+                Fair Share: <strong>${{ fair_share }}</strong>
+            </div>
+            <div class="item">
                 <h4>Transactions:</h4>
                 <ul>
                     {% for transaction in transactions %}
@@ -59,5 +58,25 @@
             </div>
         {% endif %}
     </div>
+
+  <script>
+    function adjustWidth() {
+      const app = document.getElementById('app');
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 400) {
+        app.style.width = '100%';  // Full width for screens less than 400px
+      } else if (screenWidth >= 300 && screenWidth <= 1024) {
+        app.style.width = '75%';   // 75% width for screens between 300px and 1024px
+      } else {
+        app.style.width = '50%';   // 50% width for screens greater than 1024px
+      }
+    }
+
+    // Run the function on page load and on window resize
+    window.onload = adjustWidth;
+    window.onresize = adjustWidth;
+  </script>
+
 </body>
 </html>
