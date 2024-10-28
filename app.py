@@ -10,7 +10,7 @@ participants = []
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if 'reset_all' in request.form:
+        if 'reset-all' in request.form:
             global participants
             participants = []
             return render_template('index.html',
@@ -18,7 +18,7 @@ def index():
                                    total_expense=None,
                                    fair_share=None,
                                    transactions=None)
-        elif 'add_participant' in request.form:
+        elif 'add-participant' in request.form:
             # Add participant with expense
             name = request.form['name']
             expense = request.form['expense']

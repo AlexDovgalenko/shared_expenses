@@ -11,7 +11,6 @@
 <!--    <div >-->
         <div class="item">
             <h1>Shared Expenses</h1>
-
             <!-- Form for adding participants -->
             <form method="POST">
                 <div class="form-group">
@@ -22,7 +21,7 @@
                     <label for="expense">Expense:</label>
                     <input type="text" id="expense" name="expense" required>
                 </div>
-                <button type="submit" name="add_participant">Add Participant</button>
+                <button type="submit" name="add-participant">Add Participant</button>
             </form>
         </div>
         <!-- Separate form for calculating expenses -->
@@ -32,7 +31,6 @@
                 <button type="submit" class="reset-all" name="reset-all">Reset All</button> <!-- Button to reset all data -->
             </form>
         </div>
-        <br>
         {% if participants is not none %}
             <div class="item">
                 <h3>Participants:</h3>
@@ -64,12 +62,12 @@
       const app = document.getElementById('app');
       const screenWidth = window.innerWidth;
 
-      if (screenWidth < 400) {
-        app.style.width = '100%';  // Full width for screens less than 400px
-      } else if (screenWidth >= 300 && screenWidth <= 1024) {
-        app.style.width = '75%';   // 75% width for screens between 300px and 1024px
+      if (screenWidth < 600) {
+        app.style.width = '100%';  // Full width for screens less than 600px
+      } else if (screenWidth >= 600 && screenWidth <= 1280) {
+        app.style.width = '75%';   // 75% width for screens between 600px and 1280px
       } else {
-        app.style.width = '50%';   // 50% width for screens greater than 1024px
+        app.style.width = '50%';   // 50% width for screens greater than 1280px
       }
     }
 
