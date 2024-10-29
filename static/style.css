@@ -4,46 +4,80 @@ body, html {
   padding: 0;
   display: flex;
   justify-content: center; /* Horizontal centering */
-  align-items: flex-start;   /* Align content to the bottom */
+  align-items: flex-start;   /* Align content to the top */
   background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .app-container {
   background-color: white;
   padding: 5px;
+  padding-bottom: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: width 0.3s;
+  min-width: 500px
 }
 
 /* Flex item */
 .item {
-  flex: 1 1 100%;
-  padding: 5px;
+  display: flex;
+  padding-inline: 5px;
   margin-bottom: 5px;
   background-color: #f0f0f0;
-  .main-container
   align-items: center;
 }
 
-/* Form styling */
-/*
-form {
-//    width: 500px;
-//    margin: 0 auto;
-//    display: flex;
-//    flex-direction: column;
-//} */
+.output {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 5px;
+  margin-bottom: 5px;
+  background-color: #a1a09d;
+  color: white;
+  border: solid;
+  border-color: #2b2b2a;
+  justify-content: center;
+}
 
-label {
-    display: inline-block;
-    text-align: left;
+.form-field{
+    flex-grow: 1;
+}
+
+.app-caption{
+    background-color: white;
+    width: min-content;
+    aspect-ratio: 1 / 1;
+    align-content: center;
+    padding: 2px;
     margin: 5px;
 }
 
+/* Form styling */
+
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center
+}
+
+form[class="action-buttons"] {
+    margin: 0 auto;
+    display: flex;
+    flex-grow: 1;
+    text-align: center
+}
+
+label {
+    text-align: left;
+    margin: 5px;
+    min-width: 70px;
+}
+
 input {
+    flex-grow: 1;
     padding: 5px;
     text-align: center;
-    width: 75%;
     margin: 5px;
 }
 
@@ -51,10 +85,11 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-inline: 5px;
 }
 
 button {
-    width: 100%;
+    flex-grow: 1;
     padding-block: 5px;
     padding-inline: 2px;
     text-align: center;
@@ -66,10 +101,12 @@ button {
 }
 
 button[class="reset-all"] {
-    background-color: #a1a09d
+    background-color: #a1a09d;
+    border: solid;
+    border-color: #2b2b2a;
 }
 
 
 button[type="reset"]:hover, button[type="submit"]:hover {
-    opacity: 0.8; /* Slightly transparent on hover */
+    opacity: 0.7; /* Slightly transparent on hover */
 }

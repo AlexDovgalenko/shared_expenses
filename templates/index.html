@@ -8,11 +8,10 @@
 </head>
 <body>
     <div class="app-container" id="app">
-<!--    <div >-->
         <div class="item">
-            <h1>Shared Expenses</h1>
+            <h2 class="app-caption">Shared Expenses</h2>
             <!-- Form for adding participants -->
-            <form method="POST">
+            <form method="POST" class="form-field">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -24,16 +23,16 @@
                 <button type="submit" name="add-participant">Add Participant</button>
             </form>
         </div>
-        <!-- Separate form for calculating expenses -->
+        <!-- Block of actions buttons -->
         <div class="item">
-            <form method="POST">
+            <form method="POST" class="action-buttons">
                 <button type="submit" name="calculate">Calculate Expenses</button>
                 <button type="submit" class="reset-all" name="reset-all">Reset All</button> <!-- Button to reset all data -->
             </form>
         </div>
-        {% if participants is not none %}
+        {% if participants %}
             <div class="item">
-                <h3>Participants:</h3>
+                <h4>Participants:</h4>
                 <ul>
                     {% for participant in participants %}
                         <li>{{ participant.name }} - ${{ participant.expense }}</li>
@@ -42,9 +41,9 @@
             </div>
         {% endif %}
         {% if transactions is not none %}
-            <div class="item">
-                Total Expenses: <strong>${{ total_expense }}</strong><br>
-                Fair Share: <strong>${{ fair_share }}</strong>
+            <div class="output">
+                <span>Total Expenses:  <strong>${{ total_expense }}</strong></span>
+                <span>Fair Share:  <strong>${{ fair_share }}</strong></span>
             </div>
             <div class="item">
                 <h4>Transactions:</h4>
@@ -62,12 +61,12 @@
       const app = document.getElementById('app');
       const screenWidth = window.innerWidth;
 
-      if (screenWidth < 600) {
-        app.style.width = '100%';  // Full width for screens less than 600px
-      } else if (screenWidth >= 600 && screenWidth <= 1280) {
-        app.style.width = '75%';   // 75% width for screens between 600px and 1280px
+      if (screenWidth < 450) {
+        app.style.width = `${screenWidth}px`;  // Full width for screens less than 450px
+      } else if (screenWidth >= 450 && screenWidth <= 1024) {
+        app.style.width = `${screenWidth * 0.75}px`;   // 75% of screen width
       } else {
-        app.style.width = '50%';   // 50% width for screens greater than 1280px
+        app.style.width = `${screenWidth * 0.5}px`;   // 50% of screen width
       }
     }
 
