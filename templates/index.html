@@ -42,8 +42,8 @@
         {% endif %}
         {% if transactions is not none %}
             <div class="output">
-                <span>Total Expenses:  <strong>${{ total_expense }}</strong></span>
-                <span>Fair Share:  <strong>${{ fair_share }}</strong></span>
+                <span><strong>Total Expenses:  </strong>  <strong>${{ total_expense }}</strong></span>
+                <span><strong>Fair Share:  </strong>  <strong>${{ fair_share }}</strong></span>
             </div>
             <div class="item">
                 <h4>Transactions:</h4>
@@ -61,12 +61,12 @@
       const app = document.getElementById('app');
       const screenWidth = window.innerWidth;
 
-      if (screenWidth < 450) {
-        app.style.width = `${screenWidth}px`;  // Full width for screens less than 450px
-      } else if (screenWidth >= 450 && screenWidth <= 1024) {
-        app.style.width = `${screenWidth * 0.75}px`;   // 75% of screen width
+      if (screenWidth < 500) {
+        app.style.width = `${screenWidth * 0.95}px`;  // 95% of screen width if screen less than 500px
+      } else if (screenWidth >= 500 && screenWidth <= 1280) {
+        app.style.width = `${screenWidth * 0.8}px`;   // 80% of screen width
       } else {
-        app.style.width = `${screenWidth * 0.5}px`;   // 50% of screen width
+        app.style.width = `${screenWidth * 0.6}px`;   // 60% of screen width
       }
     }
 

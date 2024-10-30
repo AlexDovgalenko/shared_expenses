@@ -10,12 +10,14 @@ body, html {
 }
 
 .app-container {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   padding: 5px;
   padding-bottom: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: width 0.3s;
-  min-width: 400px
+  min-width: 400px;
 }
 
 /* Flex item */
@@ -30,16 +32,18 @@ body, html {
 .output {
   display: flex;
   flex-direction: column;
-  padding-inline: 5px;
+  justify-content: space-between;
+  padding: 5px;
   margin-bottom: 5px;
-  background-color: #a1a09d;
-  color: white;
+  background-color: #f0f0f0;
   border: solid;
-  border-color: #2b2b2a;
+  border-color: #a1a09d;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .form-field{
+    display: flex;
     flex-grow: 1;
 }
 
@@ -58,27 +62,29 @@ form {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    text-align: center
+    text-align: center;
 }
 
 form[class="action-buttons"] {
     margin: 0 auto;
     display: flex;
     flex-grow: 1;
-    text-align: center
+    text-align: center;
 }
 
 label {
     text-align: left;
     margin: 5px;
-    min-width: 70px;
+    min-width: 65px;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 input {
     flex-grow: 1;
     padding: 5px;
     text-align: center;
-    margin: 5px;
+    margin: 2px;
 }
 
 .form-group {
@@ -90,23 +96,30 @@ input {
 
 button {
     flex-grow: 1;
-    padding-block: 5px;
-    padding-inline: 2px;
     text-align: center;
-    background-color: #029c2b; /* Customize button color */
+    margin: 5px;
+    padding: 7px 15px;
+    font-size: 14px;
+    font-weight: bold;
     color: white;
     border: none;
+    border-radius: 5px;
+    background-color: #4d913d;
+    box-shadow: 0 4px #03450c;
+    border-color: #03450c;
     cursor: pointer;
-    margin: 5px;
+    transition: box-shadow 0.1s ease;
 }
+
 
 button[class="reset-all"] {
     background-color: #a1a09d;
     border: solid;
     border-color: #2b2b2a;
+    box-shadow: 0 4px #2b2b2a;
 }
 
 
 button[type="reset"]:hover, button[type="submit"]:hover {
-    opacity: 0.7; /* Slightly transparent on hover */
+    opacity: 0.8; /* Slightly transparent on hover */
 }
