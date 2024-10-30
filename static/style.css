@@ -123,3 +123,17 @@ button[class="reset-all"] {
 button[type="reset"]:hover, button[type="submit"]:hover {
     opacity: 0.8; /* Slightly transparent on hover */
 }
+
+.icon-container {
+  width: 115px;
+  height: 115px;
+  background-image: url('shared_expenses.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon-container img {
+  width: 100%;
+  height: 100%;
+}
